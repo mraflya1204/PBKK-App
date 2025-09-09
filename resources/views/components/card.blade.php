@@ -2,5 +2,5 @@
 
 <div @class(['highlight' => $highlight, 'card'])>
     {{ $slot }}
-    <a href="{{ $attributes }}" class="btn"> <p>View Details<p></a>
+    <a href="{{ $attributes->get('href') }}" class="btn"><p>View Details</p></a>
 </div>
