@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::get('/ninjas', function () {
     $ninjas = [
         ["id" => "1", "name" => "Hattori Hanzo", "age" => 35, "specialty" => "Stealth", "skill" => 70],
