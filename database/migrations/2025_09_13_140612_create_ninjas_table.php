@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('age');
             $table->string('specialty');
             $table->integer('skill');
+            $table->text('bio');
         });
     }
 

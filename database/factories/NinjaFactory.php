@@ -21,6 +21,7 @@ class NinjaFactory extends Factory
             'age' => fake()->numberBetween(18, 60),
             'specialty' => fake()->randomElement(['Stealth', 'Espionage','Assasination','Martial Arts','Thievery',]),
             'skill' => fake()->numberBetween(30, 100),
+            'bio' => fake()->realText(500),
         ];
     }
 }
