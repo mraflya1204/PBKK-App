@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class NinjaController extends Controller
 {
+    public function home(){
+        return view('welcome');
+    }
+
+    public function about(){
+        return view('about');
+    }
+    
     public function index(){
         $ninjas = Ninja::orderBy('created_at', 'desc')->get();
         return view('ninjas.index', ["ninjas" => $ninjas]);
