@@ -1,9 +1,9 @@
 <x-layout>
 @section('title', 'Available Ninjas')
     <h2>Currently Available Ninjas</h2>
-    @if($greeting == "Hello")
-        <p>{{ $greeting }}, esteemed guest!, this is our top ninjas</p>
-    @endif
+
+    <p> Hello, esteemed guest!, this is our top ninjas</p>
+
 
     <ul>
         @foreach($ninjas as $ninja)
