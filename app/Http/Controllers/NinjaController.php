@@ -13,7 +13,8 @@ class NinjaController extends Controller
     }
     
     public function show($id){
-        return view('ninjas.show', ['id' => $id]);
+        $ninja = Ninja::findOrFail($id);
+        return view('ninjas.show', ['ninja' => $ninja]);
     }
     public function create(){
         return view('ninjas.create');
