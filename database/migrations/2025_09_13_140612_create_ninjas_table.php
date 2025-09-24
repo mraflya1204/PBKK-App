@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('specialty');
             $table->integer('skill');
             $table->text('bio');
-            $table->foreignId('dojo_id');
+            $table->foreignId('dojo_id')->constrained()->onDelete('cascade');
         });
     }
 
