@@ -29,7 +29,20 @@ class NinjaController extends Controller
         $dojoList = Dojo::all();
         return view('ninjas.create', ['dojoList' => $dojoList]);
     }
-    public function store(){
+    public function store(Request $request){
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'age' => 'required|integer|min:10|max:100',
+            'specialty' => 'required|in:Stealth,Espionage,Assasination,Martial Arts,Thievery',
+            'skill' => 'required|integer|min:30|max:100',
+            'bio' => 'required',
+            'dojo_id' => 'required|exists:dojos,id'
+        ]);
+
+        Ninja::create($validated);
+
+
+        return redirect()->route('ninjas.index')->with('success', 'Ninja created successfully!');
 
     }
 }

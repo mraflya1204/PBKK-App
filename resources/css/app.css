@@ -48,9 +48,9 @@ form {
 }
 input, select, textarea {
     @apply block w-full mt-2 mb-4 p-2;
-    background-color: cyan; /* light blue */
-    border-radius: 0.375rem; /* rounded */
-    border: 1px solid #bae6fd; /* subtle border */
+    background-color: white; 
+    border-radius: 0.375rem; 
+    border: 1px solid black; 
 }
 
 /* custom classes */
