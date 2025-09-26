@@ -19,9 +19,15 @@
 
     <p></p>
 
-    <div class="bg-gray-200 p-6 rounded-lg shadow-md">
-            <a href="/ninjas" class="text-blue-500 hover:underline">Back to Ninjas List</a>
+    <a href="{{ route('ninjas.index') }}" class="rounded px-3 py-2 bg-gray-200 hover:bg-blue-900 hover:text-white inline-block">
+        Return to Ninja List
+    </a>
+    
+    <p></p>
 
-    </div>
+    <form action="{{ route('ninjas.destroy', $ninja->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this ninja?');">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="rounded px-3 py-2 bg-gray-200 hover:bg-red-900 hover:text-white">Delete Ninja</button>
 
 </x-layout>
