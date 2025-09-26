@@ -25,16 +25,17 @@
       required
     >
 
+
     <!-- ninja Specialty -->
     <label for="specialty">Ninja Specialty:</label>
-    <select id="specialty" name="specialty" required>
-        <option value="" disabled selected>Select a specialty</option>
-        <option value="Stealth" {{ old('specialty') == 'Stealth' ? 'selected' : '' }}>Stealth</option>
-        <option value="Espionage" {{ old('specialty') == 'Espionage' ? 'selected' : '' }}>Espionage</option>
-        <option value="Assasination" {{ old('specialty') == 'Assasination' ? 'selected' : '' }}>Assasination</option>
-        <option value="Martial Arts" {{ old('specialty') == 'Martial Arts' ? 'selected' : '' }}>Martial Arts</option>
-        <option value="Thievery" {{ old('specialty') == 'Thievery' ? 'selected' : '' }}>Thievery</option>
-    </select>
+      <select id="specialty" name="specialty" required>
+          <option value="" disabled {{ old('specialty') ? '' : 'selected' }}>Select specialty</option>
+          <option value="Stealth" {{ old('specialty') == 'Stealth' ? 'selected' : '' }}>Stealth</option>
+          <option value="Espionage" {{ old('specialty') == 'Espionage' ? 'selected' : '' }}>Espionage</option>
+          <option value="Assasination" {{ old('specialty') == 'Assasination' ? 'selected' : '' }}>Assasination</option>
+          <option value="Martial Arts" {{ old('specialty') == 'Martial Arts' ? 'selected' : '' }}>Martial Arts</option>
+          <option value="Thievery" {{ old('specialty') == 'Thievery' ? 'selected' : '' }}>Thievery</option>
+      </select>
 
     <!-- ninja Strength -->
     <label for="skill">Ninja Skill (30-100):</label>
@@ -42,6 +43,7 @@
       type="number" 
       id="skill" 
       name="skill" 
+      value="{{ old('skill') }}" 
       required
     >
 
@@ -52,14 +54,16 @@
       id="bio" 
       name="bio" 
       required
-    ></textarea>
+    >
+    {{ old('bio') }}
+  </textarea>
 
     <!-- select a dojo -->
     <label for="dojo_id">Dojo:</label>
     <select id="dojo_id" name="dojo_id" required>
       <option value="" disabled selected>Select a dojo</option>
       @foreach ($dojoList as $dojo)
-        <option value="{{ $dojo->id }}">
+        <option value="{{ $dojo->id }}" {{ old('dojo_id') == $dojo->id ? 'selected' : '' }}>
           {{ $dojo->name }}
         </option>
       @endforeach
@@ -68,6 +72,15 @@
     <button type="submit" class="btn mt-4">Create Ninja</button>
 
     <!-- validation errors -->
+    @if ($errors->any())
+        <div class="error-messages">
+            <ul class="px-4 py-3 mb-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
     
 </form>
 </x-layout>
