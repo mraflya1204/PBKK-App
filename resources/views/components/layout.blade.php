@@ -7,6 +7,12 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+@if(session('success'))
+    <div class="bg-blue-500 text-white p-4 text-center">
+        {{ session('success') }}
+    </div>
+@endif
+
     <header>
         <nav>
             <h1>Ninja Network</h1>
