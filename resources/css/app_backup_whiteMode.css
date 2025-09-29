@@ -11,10 +11,12 @@
 }
 
 body {
+    /* Changed background to dark gray and text to light gray */
     @apply bg-gray-900 text-gray-300;
     font-family: "Impact";
 }
 h1 {
+    /* Changed text to a lighter, vibrant blue for dark backgrounds */
     @apply text-2xl font-bold text-blue-400;
 }
 h2 {
@@ -32,6 +34,7 @@ p {
 
 /* header */
 header {
+    /* Made the header background a slightly lighter gray than the body for contrast */
     @apply bg-gray-800 border-b border-gray-700;
 
 nav {
@@ -42,22 +45,28 @@ h1 {
 }
 }
 
+/* form elements */
 form {
     @apply max-w-screen-sm;
 }
 input, select, textarea {
+    /* Inverted form elements to have a dark background, light text, and subtle border */
     @apply block w-full mt-2 mb-4 p-2 bg-gray-700 text-gray-200 rounded-md border border-gray-600;
 }
 
+/* custom classes */
 .container {
     @apply max-w-screen-lg mx-auto px-12 py-8;
 }
 .card {
+    /* Converted card to use a dark background and border */
     @apply bg-gray-800 rounded border border-gray-700 px-3 py-3 my-2 flex justify-between items-center;
 }
 .highlight {
+    /* The original blue accent works well on dark mode */
     @apply border-l-4 border-l-blue-500;
 }
 .btn {
+    /* Changed button to a dark base with a lighter, brighter hover effect */
     @apply rounded px-3 py-2 bg-gray-700 text-gray-200 hover:bg-blue-500 hover:text-white;
 }
